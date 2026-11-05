@@ -17,24 +17,15 @@ This system has practical applications in media forensics, content authenticity 
 
 Table of Contents
 Overview
-
 Features
-
 Project Structure
-
 Requirements
-
 Installation
-
 Usage
-
 Model Architecture
-
 Dataset
-
 Results
 
-License
 
 Overview
 Deepfake voice generation has become increasingly realistic thanks to neural vocoders such as WaveNet, WaveGlow, and HiFi-GAN. These vocoders synthesize human-like speech but leave subtle artifacts in the waveform. This project leverages RawNet2, a raw-waveform deep learning architecture, to detect those artifacts and classify audio samples as genuine or synthetic.
