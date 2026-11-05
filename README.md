@@ -1,15 +1,15 @@
 # Deepfake voice detection system using neural vocoders	
-#Overview
+Overview : 
 The Deepfake Voice Detection System is a deep learning-based solution designed to identify AI-generated synthetic speech by detecting artifacts introduced by neural vocoders. As deepfake technology becomes increasingly sophisticated, distinguishing between real and artificially generated human voices has become a critical challenge for security, media integrity, and digital forensics. This project addresses that challenge by leveraging RawNet2, a state-of-the-art raw waveform-based deep learning architecture, to classify audio samples as either genuine or synthetic.
 
-What the Project Does
+What the Project Does : 
 The system analyzes raw audio waveforms directly—without requiring handcrafted feature extraction—to detect subtle anomalies left behind by neural vocoders used to generate fake speech. Neural vocoders, such as WaveNet, WaveGlow, and HiFi-GAN, synthesize human-like speech but often leave identifiable artifacts in the waveform. The RawNet2 model is trained to recognize these tell-tale signs, enabling accurate detection of deepfake audio across different vocoder types and synthesis conditions.
 
-Multi-Task Learning Approach
+Multi-Task Learning Approach : 
 A key innovation in this project is the use of multi-task learning, where the model simultaneously performs two tasks: (1) binary classification of real versus fake voice samples, and (2) identification of the specific neural vocoder used to generate the synthetic audio. By learning to recognize both the authenticity of a sample and its likely source vocoder, the model develops a richer internal representation of vocoder-specific artifacts. This shared learning process significantly improves detection accuracy and makes the system more robust to unseen vocoders and varied synthesis conditions, as the model learns generalized artifact patterns rather than overfitting to a single generation method.
 
-Tools and Technologies
+Tools and Technologies :
 The project is implemented using Python and PyTorch, with RawNet2 serving as the core deep learning architecture. The pipeline includes audio processing components for loading, preprocessing, and augmenting raw waveform data, enabling the model to learn directly from time-domain audio signals. The use of raw waveforms eliminates the information loss that typically occurs during traditional feature extraction (e.g., MFCCs or spectrograms), allowing the model to capture fine-grained vocoder artifacts that are often imperceptible in transformed representations.
 
-Impact and Applications
+Impact and Applications : 
 This system has practical applications in media forensics, content authenticity verification, and defense against audio-based misinformation. By combining raw waveform analysis with multi-task learning, the project demonstrates that vocoder-aware deepfake detection can achieve high accuracy while remaining robust to the growing diversity of speech synthesis technologies. The approach is modular and extensible, making it adaptable to new vocoders and emerging deepfake generation techniques.
