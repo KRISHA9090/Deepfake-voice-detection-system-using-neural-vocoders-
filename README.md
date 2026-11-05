@@ -15,7 +15,6 @@ Impact and Applications :
 This system has practical applications in media forensics, content authenticity verification, and defense against audio-based misinformation. By combining raw waveform analysis with multi-task learning, the project demonstrates that vocoder-aware deepfake detection can achieve high accuracy while remaining robust to the growing diversity of speech synthesis technologies. The approach is modular and extensible, making it adaptable to new vocoders and emerging deepfake generation techniques.
 
 
-
 Table of Contents
 Overview
 
@@ -38,7 +37,9 @@ Results
 License
 
 Overview
-The Deepfake Voice Detection System is a deep learning-based solution designed to identify AI-generated synthetic speech by detecting artifacts introduced by neural vocoders. As deepfake technology becomes increasingly accessible and realistic, distinguishing genuine human voices from artificially generated ones has become a critical challenge for security, media integrity, and digital forensics. This project addresses that challenge using a raw-waveform deep learning approach powered by the RawNet2 architecture. The system analyzes audio directly in the time domain and uses multi-task learning to jointly perform real/fake classification and vocoder identification, achieving high detection accuracy while remaining robust to unseen synthesis methods.
+Deepfake voice generation has become increasingly realistic thanks to neural vocoders such as WaveNet, WaveGlow, and HiFi-GAN. These vocoders synthesize human-like speech but leave subtle artifacts in the waveform. This project leverages RawNet2, a raw-waveform deep learning architecture, to detect those artifacts and classify audio samples as genuine or synthetic.
+
+Unlike traditional approaches that rely on handcrafted features (MFCCs, spectrograms), this system learns directly from time-domain audio signals, preserving fine-grained vocoder artifacts that are often lost during feature transformation.
 
 Features
 Raw waveform input — no manual feature extraction required
@@ -48,8 +49,6 @@ Multi-task learning — simultaneous real/fake classification and vocoder identi
 Robust detection — generalizes across different neural vocoder types
 
 PyTorch implementation — modular and extensible codebase
-
-High accuracy — 96.4% real/fake classification accuracy on held-out test data
 
 Project Structure
 text
@@ -120,14 +119,7 @@ data/
     ├── waveglow/
     └── hifigan/
 Results
-The model was trained for approximately 40 epochs using a batch size of 32 and a learning rate of 0.0001 with the Adam optimizer. Performance on the held-out test set:
-
 Metric	Score
-Real/Fake Classification Accuracy	96.4%
-Vocoder Identification Accuracy	91.2%
-Equal Error Rate (EER)	3.1%
-Precision (Fake class)	95.8%
-Recall (Fake class)	96.9%
-F1-Score (Fake class)	96.3%
-AUC-ROC	0.987
-Robustness testing: When evaluated on vocoders not seen during training, detection accuracy dropped only modestly to 89.7%, demonstrating that the multi-task learning approach helps the model generalize to unseen synthesis methods rather than overfitting to specific vocoder signatures.
+Accuracy (real/fake)	96.4%
+Vocoder identification accuracy	91.2%
+EER	3.1%
