@@ -131,4 +131,3 @@ Recall (Fake class)	96.9%
 F1-Score (Fake class)	96.3%
 AUC-ROC	0.987
 Robustness testing: When evaluated on vocoders not seen during training, detection accuracy dropped only modestly to 89.7%, demonstrating that the multi-task learning approach helps the model generalize to unseen synthesis methods rather than overfitting to specific vocoder signatures.
-
